@@ -1,0 +1,160 @@
+h1 {
+    font-size: 20pt;
+}
+
+.computers-container {
+    width: 100%;
+    max-width: 1950px;
+    margin: 32px auto;
+}
+
+.computers-container header {
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.computers-container header span {
+    font-size: 18px;
+    margin-left: 24px;
+}
+
+.computers-container header img {
+    height: 40px;
+    border-right: 1px solid #D8D8D8;
+    padding-right: 30px;
+}
+
+.computers-container header a {
+    width: 200px;
+    height: 40px;
+    margin-left: auto;
+    margin-top: 0;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.computers-container header button {
+    background: transparent;
+    border: 1px solid #DCDCE6;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    transition: border 0.2s;
+}
+
+.computers-container header button:hover {
+    border-color: #999;
+}
+
+.main-search {
+    background-color: #1DC6BC;
+    width: 100%;
+    position: absolute;
+    height: 220px;
+}
+
+.main-search .search-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 55px;
+}
+
+.main-search .search-container h1 {
+    color: #FFF;
+    text-align: center;
+    font-size: 20pt;
+    font-weight: 700;
+}
+
+.main-search .search-container .form-search {
+    flex-direction: row;
+    width: 400px;
+    height: 50px;
+    background: #FFF;
+    border-radius: 20px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-search .search-container .form-search button {
+    float: left;
+    border: 0;
+    background: transparent;
+    padding: 0 15px;
+}
+
+.main-search .search-container .form-search input {
+    border: 0;
+}
+
+.computers-container .aside-container {
+    width: 100%;
+    max-width: 1300px;
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.computers-container .aside-container-loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} 
+
+.computers-container .aside-container h1.title {
+    margin: 32px 0 32px;
+}
+
+.computers-container .aside-container ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.computers-container .aside-container ul li {
+    background: #FFF;
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.computers-container .aside-container ul li button {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}
+
+.computers-container .aside-container ul li button + button {
+    margin-top: 30px;
+}
+
+.computers-container .aside-container ul li strong {
+    color: #41414D;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.computers-container .aside-container ul li p + strong {
+    margin-top: 18px;
+}
+
+/* Estilização de carregamento */
