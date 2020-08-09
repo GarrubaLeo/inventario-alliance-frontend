@@ -51,7 +51,8 @@ h1 {
 }
 
 .computers-container header button:hover {
-    border-color: #999;
+    /*border: 2px;*/
+    border: 2px solid #999;
 }
 
 .main-search {
