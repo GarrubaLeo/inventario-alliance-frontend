@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.tabs-modal {
+  margin-bottom: 15px !important;
+}
+
 .lds-facebook {
     display: inline-block;
     position: relative;
