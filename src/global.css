@@ -19,7 +19,7 @@ input, button, textarea {
 
 .textarea {
     width: 100%;
-    resize: vertical;
+    resize: none !important;
     min-height: 140px;
     color: #333;
     border: 1px solid #dcdce6;
