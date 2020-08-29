@@ -10,7 +10,6 @@ import './styles.css'
 
 export default function Register() {
     const [codigo, setCodigo] = useState('');
-    const [dominio, setDominio] = useState('')
     const [ip, setIp] = useState('')
     const [fabricante, setFabricante] = useState('')
     const [modelo, setModelo] = useState('')
@@ -30,7 +29,7 @@ export default function Register() {
 
         const data = {
             codigo,
-            dominio,
+            torre,
             ip,
             fabricante,
             modelo,
@@ -204,6 +203,8 @@ export default function Register() {
                             value={obs}
                             onChange={e => setObs(e.target.value)}
                         />
+
+                        <button className="button-default" onSubmit={handleCadastro}>Cadastrar</button>
                     </Form.Row>
                 </Form>
             </div>
