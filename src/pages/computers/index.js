@@ -24,7 +24,7 @@ export default function Computers() {
     const handleUpdateComputer = async (data) => {
         const codigoAtivo = data.codigo;
         const payload = {
-            dominio: data.dominio,
+            torre: data.torre,
             status: data.status,
             ip: data.ip,
             numSerie: data.numSerie,
@@ -34,6 +34,7 @@ export default function Computers() {
             chaveWindows: data.chaveWindows,
             versaoOffice: data.versaoOffice,
             chaveOffice: data.chaveOffice,
+            usuario: data.usuario
         }
 
         try {
@@ -102,8 +103,8 @@ export default function Computers() {
                             <strong>MARCA:</strong>
                             <p>{computer.fabricante}</p>
 
-                            <strong>DOMÍNIO:</strong>
-                            <p>{computer.dominio}</p>
+                            <strong>TORRE:</strong>
+                            <p>{computer.torre}</p>
 
                             <button onClick={() => renderModal(true, computer)}>
                                 <FiEdit size={18} color="#1DC6BC" />
