@@ -7,8 +7,10 @@ export class ModalForm extends Component {
     state = {
         model: {
             codigo: '',
-            dominio: '',
+            torre: '',
             status: '',
+            usuario: '',
+            obs: '',
             ip: '',
             numSerie: '',
             fabricante: '',
@@ -17,11 +19,7 @@ export class ModalForm extends Component {
             chaveWindows: '',
             versaoOffice: '',
             chaveOffice: '',
-            obs: '',
-            allocated: '',
         },
-
-        isLoading: false,
     }
 
     handleInputChange = (event, name) => {
@@ -46,29 +44,29 @@ export class ModalForm extends Component {
     }
 
     render() {
-        const { model, isLoading } = this.state;
+        const { model } = this.state;
 
-        if (isLoading) {
-            return (
-                <Modal
-                    show={this.props.show}
-                    onHide={this.props.onHide}
-                    size="lg"
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                >
-                    <Modal.Body>
-                        <div className="modal-container">
-                            <div className="lds-facebook" >
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div >
-                        </div>
-                    </Modal.Body>
-                </Modal>
-            )
-        }
+        // if (isLoading) {
+        //     return (
+        //         <Modal
+        //             show={this.props.show}
+        //             onHide={this.props.onHide}
+        //             size="lg"
+        //             aria-labelledby="contained-modal-title-vcenter"
+        //             centered
+        //         >
+        //             <Modal.Body>
+        //                 <div className="modal-container">
+        //                     <div className="lds-facebook" >
+        //                         <div></div>
+        //                         <div></div>
+        //                         <div></div>
+        //                     </div >
+        //                 </div>
+        //             </Modal.Body>
+        //         </Modal>
+        //     )
+        // }
 
         return (
             <Modal
@@ -106,9 +104,9 @@ export class ModalForm extends Component {
                                         <Form.Label>Torre</Form.Label>
                                         <Form.Control
                                             type="text"
-                                            name="dominio"
-                                            defaultValue={model.dominio}
-                                            onChange={(event) => this.handleInputChange(event, 'dominio')}
+                                            name="torre"
+                                            defaultValue={model.torre}
+                                            onChange={(event) => this.handleInputChange(event, 'torre')}
                                             required
                                         >
                                         </Form.Control>
@@ -132,9 +130,9 @@ export class ModalForm extends Component {
                                         <Form.Label>Alocada com</Form.Label>
                                         <Form.Control
                                             type="text"
-                                            name="allocated"
-                                            defaultValue={model.allocated}
-                                            onChange={(event) => this.handleInputChange(event, 'allocated')}
+                                            name="usuario"
+                                            defaultValue={model.usuario}
+                                            onChange={(event) => this.handleInputChange(event, 'usuario')}
                                         />
                                     </Form.Group>
                                 </Form.Row>
@@ -153,60 +151,6 @@ export class ModalForm extends Component {
 
                         <Tab eventKey="details" title="Ficha técnica">
                             <Form>
-                                {/* <Form.Row>
-                                    <Form.Group as={Col} controlId="Codigo">
-                                        <Form.Label>Código de identificação</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            name="codigo"
-                                            required
-                                            defaultValue={model.codigo}
-                                            disabled
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="Dominio">
-                                        <Form.Label>Domínio</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            name="dominio"
-                                            defaultValue={model.dominio}
-                                            onChange={(event) => this.handleInputChange(event, 'dominio')}
-                                            required
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="Status">
-                                        <Form.Label>Status</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            name="status"
-                                            defaultValue={model.status}
-                                            onChange={(event) => this.handleInputChange(event, 'status')}
-                                            required
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
-
-                                    {/* <Form.Group as={Col} controlId="Status">
-                                <Form.Label>Status</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    type="text"
-                                    name="status"
-                                    defaultValue={model.status}
-                                    onChange={(event) => this.handleInputChange(event, 'status')}
-                                    required
-                                >
-                                    <option></option>
-                                    <option>Disponível</option>
-                                    <option>Alocada</option>
-                                </Form.Control>
-                            </Form.Group>
-                                </Form.Row> */}
-
                                 <Form.Row>
                                     <Form.Group as={Col} controlId="Ip">
                                         <Form.Label>IP</Form.Label>
