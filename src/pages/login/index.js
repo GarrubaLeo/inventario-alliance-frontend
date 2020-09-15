@@ -18,7 +18,7 @@ export default function Login() {
         try {
             const res = await api.post('users/login', { username, password});
 
-            localStorage.setItem('name', res.data.name);
+            localStorage.setItem('token', res.token);
 
             history.push('/computers/main');
         } catch (error) {
@@ -30,7 +30,7 @@ export default function Login() {
         <div className="login-container">
             <div className="content">
                 <section>
-                    <img src={logoImg} alt="Allianca Consultoria"/>
+                    <img src={logoImg} alt="Alliance Consultoria"/>
                     <h1>Login</h1>
                     <p>Acesse com usuário e senha</p>
                 </section>
