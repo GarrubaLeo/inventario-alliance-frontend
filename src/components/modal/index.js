@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Form, Col, Button } from 'react-bootstrap'
+import { Modal, Form, Col, Button, Tabs, Tab } from 'react-bootstrap'
 import { Component } from 'react';
 import './modalStyles.css';
 
@@ -21,7 +21,7 @@ export class ModalForm extends Component {
         },
 
         isLoading: false,
-    }   
+    }
 
     handleInputChange = (event, name) => {
         const { model } = this.state;
@@ -84,175 +84,86 @@ export class ModalForm extends Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="Codigo">
-                                <Form.Label>Código</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="codigo"
-                                    required
-                                    defaultValue={model.codigo}
-                                    disabled
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                    <Tabs defaultActiveKey="control" id="uncontrolled-tab-example">
+                        <Tab eventKey="control" title="Controle Interno">
+                            <Form>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="Codigo">
+                                        <Form.Label>Código</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="codigo"
+                                            required
+                                            defaultValue={model.codigo}
+                                            disabled
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
 
-                            <Form.Group as={Col} controlId="Dominio">
-                                <Form.Label>Domínio</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="dominio"
-                                    defaultValue={model.dominio}
-                                    onChange={(event) => this.handleInputChange(event, 'dominio')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                    <Form.Group as={Col} controlId="Ip">
+                                        <Form.Label>IP</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="ip"
+                                            required
+                                            defaultValue={model.ip}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
 
-                            <Form.Group as={Col} controlId="Status">
-                                <Form.Label>Status</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="status"
-                                    defaultValue={model.status}
-                                    onChange={(event) => this.handleInputChange(event, 'status')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                    <Form.Group as={Col} controlId="Status">
+                                        <Form.Label>Status</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="status"
+                                            required
+                                            defaultValue={model.status}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
 
-                            {/* <Form.Group as={Col} controlId="Status">
-                                <Form.Label>Status</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    type="text"
-                                    name="status"
-                                    defaultValue={model.status}
-                                    onChange={(event) => this.handleInputChange(event, 'status')}
-                                    required
-                                >
-                                    <option></option>
-                                    <option>Disponível</option>
-                                    <option>Alocada</option>
-                                </Form.Control>
-                            </Form.Group> */}
-                        </Form.Row>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="AlocadoCom">
+                                        <Form.Label>Alocada com</Form.Label>
 
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="Ip">
-                                <Form.Label>IP</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="ip"
-                                    defaultValue={model.ip}
-                                    onChange={(event) => this.handleInputChange(event, 'ip')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                        <Form.Control
+                                            type="text"
+                                            name="alocadoCom"
+                                            required
+                                            defaultValue={model.alocadoCom}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
 
-                            <Form.Group as={Col} controlId="NumSerie">
-                                <Form.Label>Nº de Série</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="numSerie"
-                                    defaultValue={model.numSerie}
-                                    onChange={(event) => this.handleInputChange(event, 'numSerie')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-                        </Form.Row>
+                                    <Form.Group as={Col} controlId="Torre">
+                                        <Form.Label>Torre</Form.Label>
 
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="Fabricante">
-                                <Form.Label>Fabricante</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="fabricante"
-                                    defaultValue={model.fabricante}
-                                    onChange={(event) => this.handleInputChange(event, 'fabricante')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                        <Form.Control
+                                            type="text"
+                                            name="torre"
+                                            required
+                                            defaultValue={model.dominio}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
 
-                            <Form.Group as={Col} controlId="Modelo">
-                                <Form.Label>Modelo</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="modelo"
-                                    defaultValue={model.modelo}
-                                    onChange={(event) => this.handleInputChange(event, 'modelo')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-                        </Form.Row>
+                                <Form.Row>
+                                    <Form.Label>Observação</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        name="obs"
+                                        defaultValue={model.obs}
+                                        onChange={(event) => this.handleInputChange(event, 'obs')}
+                                    />
+                                </Form.Row>
+                            </Form>
+                        </Tab>
+                        <Tab eventKey="technical" title="Ficha técnica">
 
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="VersaoOS">
-                                <Form.Label>Versão Windows</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="versaoOS"
-                                    defaultValue={model.versaoOS}
-                                    onChange={(event) => this.handleInputChange(event, 'versaoOS')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="ChaveWindows">
-                                <Form.Label>Chave do Windows</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="chaveWindows"
-                                    defaultValue={model.chaveWindows}
-                                    onChange={(event) => this.handleInputChange(event, 'chaveWindows')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-                        </Form.Row>
-
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="VersaoOffice">
-                                <Form.Label>Versão Office</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="versaoOffice"
-                                    defaultValue={model.versaoOffice}
-                                    onChange={(event) => this.handleInputChange(event, 'versaoOffice')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="ChaveOffice">
-                                <Form.Label>Chave do Office</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="chaveOffice"
-                                    defaultValue={model.chaveOffice}
-                                    onChange={(event) => this.handleInputChange(event, 'chaveOffice')}
-                                    required
-                                >
-                                </Form.Control>
-                            </Form.Group>
-                        </Form.Row>
-
-                        <Form.Row>
-                            <Form.Label>Observação</Form.Label>
-                            <Form.Control
-                                as="textarea"
-                                name="obs"
-                                defaultValue={model.obs}
-                                onChange={(event) => this.handleInputChange(event, 'obs')}
-                            />
-                        </Form.Row>
-                    </Form>
+                        </Tab>
+                    </Tabs>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="success" onClick={this.submitForm}>Salvar</Button>
