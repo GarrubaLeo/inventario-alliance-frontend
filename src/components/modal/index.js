@@ -7,7 +7,7 @@ export class ModalForm extends Component {
     state = {
         model: {
             codigo: '',
-            dominio: '',
+            torre: '',
             status: '',
             ip: '',
             numSerie: '',
@@ -17,7 +17,8 @@ export class ModalForm extends Component {
             chaveWindows: '',
             versaoOffice: '',
             chaveOffice: '',
-            obs: ''
+            obs: '',
+            alocadoCom: '',
         },
 
         isLoading: false,
@@ -107,7 +108,8 @@ export class ModalForm extends Component {
                                             type="text"
                                             name="torre"
                                             required
-                                            defaultValue={model.dominio}
+                                            defaultValue={model.torre}
+                                            onChange={(event) => this.handleInputChange(event, 'torre')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -119,6 +121,7 @@ export class ModalForm extends Component {
                                             name="status"
                                             required
                                             defaultValue={model.status}
+                                            onChange={(event) => this.handleInputChange(event, 'status')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -133,6 +136,7 @@ export class ModalForm extends Component {
                                             name="alocadoCom"
                                             required
                                             defaultValue={model.alocadoCom}
+                                            onChange={(event) => this.handleInputChange(event, 'alocadoCom')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -161,6 +165,7 @@ export class ModalForm extends Component {
                                             name="ip"
                                             required
                                             defaultValue={model.ip}
+                                            onChange={(event) => this.handleInputChange(event, 'ip')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -173,6 +178,7 @@ export class ModalForm extends Component {
                                             name="numSerie"
                                             required
                                             defaultValue={model.numSerie}
+                                            onChange={(event) => this.handleInputChange(event, 'numSerie')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -187,6 +193,7 @@ export class ModalForm extends Component {
                                             name="fabricante"
                                             required
                                             defaultValue={model.fabricante}
+                                            onChange={(event) => this.handleInputChange(event, 'fabricante')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -199,6 +206,7 @@ export class ModalForm extends Component {
                                             name="modelo"
                                             required
                                             defaultValue={model.modelo}
+                                            onChange={(event) => this.handleInputChange(event, 'modelo')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -213,6 +221,7 @@ export class ModalForm extends Component {
                                             name="versaoOS"
                                             required
                                             defaultValue={model.versaoOS}
+                                            onChange={(event) => this.handleInputChange(event, 'versaoOS')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -225,6 +234,7 @@ export class ModalForm extends Component {
                                             name="chaveWindows"
                                             required
                                             defaultValue={model.chaveWindows}
+                                            onChange={(event) => this.handleInputChange(event, 'chaveWindows')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -239,6 +249,7 @@ export class ModalForm extends Component {
                                             name="versaoOffice"
                                             required
                                             defaultValue={model.versaoOffice}
+                                            onChange={(event) => this.handleInputChange(event, 'versaoOffice')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
@@ -251,6 +262,7 @@ export class ModalForm extends Component {
                                             name="chaveOffice"
                                             required
                                             defaultValue={model.chaveOffice}
+                                            onChange={(event) => this.handleInputChange(event, 'chaveOffice')}
                                         >
                                         </Form.Control>
                                     </Form.Group>
