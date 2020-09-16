@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiEdit, FiSearch, FiInfo } from 'react-icons/fi'
+import { FiPower, FiEdit, FiSearch } from 'react-icons/fi'
 
 import './styles.css'
 import ModalForm from '../../components/modal/'
@@ -24,7 +24,7 @@ export default function Computers() {
     const handleUpdateComputer = async (data) => {
         const codigoAtivo = data.codigo;
         const payload = {
-            dominio: data.dominio,
+            torre: data.torre,
             status: data.status,
             ip: data.ip,
             numSerie: data.numSerie,
@@ -34,6 +34,7 @@ export default function Computers() {
             chaveWindows: data.chaveWindows,
             versaoOffice: data.versaoOffice,
             chaveOffice: data.chaveOffice,
+            alocadoCom: data.alocadoCom
         }
 
         try {
@@ -102,14 +103,11 @@ export default function Computers() {
                             <strong>MARCA:</strong>
                             <p>{computer.fabricante}</p>
 
-                            <strong>DOMÍNIO:</strong>
-                            <p>{computer.dominio}</p>
+                            <strong>TORRE:</strong>
+                            <p>{computer.torre}</p>
 
                             <button onClick={() => renderModal(true, computer)}>
                                 <FiEdit size={18} color="#1DC6BC" />
-                            </button>
-                            <button onClick={() => renderModal(true, computer)}>
-                                <FiInfo size={18} color="#1DC6BC" />
                             </button>
                         </li>
                     ))
