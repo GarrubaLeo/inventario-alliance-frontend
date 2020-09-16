@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
+import { login } from '../../services/auth'
 import { useHistory } from 'react-router-dom';
 
 import './styles.css'
@@ -18,7 +19,9 @@ export default function Login() {
         try {
             const res = await api.post('users/login', { username, password});
 
-            localStorage.setItem('token', res.token);
+            login(res.data.token)
+
+            localStorage.setItem('name', res.data.nameUser);
 
             history.push('/computers/main');
         } catch (error) {
