@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
+import { Form, Row, ButtonGroup, Label, Control, Col, Tabs, Tab } from 'react-bootstrap'
 
 import api from '../../services/api'
 
@@ -9,7 +10,7 @@ import './styles.css'
 
 export default function Register() {
     const [codigo, setCodigo] = useState('');
-    const [dominio, setDominio] = useState('')
+    const [torre, setTorre] = useState('')
     const [ip, setIp] = useState('')
     const [fabricante, setFabricante] = useState('')
     const [modelo, setModelo] = useState('')
@@ -20,6 +21,7 @@ export default function Register() {
     const [chaveOffice, setChaveOffice] = useState('')
     const [status, setStatus] = useState('')
     const [obs, setObs] = useState('')
+    const [alocadoCom, setAlocadoCom] = useState('');
 
     const history = useHistory();
 
@@ -28,7 +30,7 @@ export default function Register() {
 
         const data = {
             codigo,
-            dominio,
+            torre,
             ip,
             fabricante,
             modelo,
@@ -39,6 +41,7 @@ export default function Register() {
             chaveOffice,
             status,
             obs,
+            alocadoCom
         }
 
         try {
@@ -62,101 +65,200 @@ export default function Register() {
                     </Link>
                 </section>
 
-                <form onSubmit={handleCadastro} >
-                    <div className="input-package">
-                        <input
-                            placeholder="Código"
-                            style={{ width: 120 }}
-                            value={codigo}
-                            onChange={e => setCodigo(e.target.value)}
-                        />
+                <div>
+                    <Tabs style={{ marginBottom: '20px' }} defaultActiveKey="control" id="uncontrolled-tab-example">
+                        <Tab eventKey="control" title="Controle Interno">
+                            <Form>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="Codigo">
+                                        <Form.Label>Código</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="codigo"
+                                            required
+                                            value={codigo}
+                                            onChange={e => setCodigo(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
 
-                        <input
-                            placeholder="Domínio"
-                            style={{ width: 123 }}
-                            value={dominio}
-                            onChange={e => setDominio(e.target.value)}
-                        />
-                        <input
-                            placeholder="Status"
-                            style={{ width: 190 }}
-                            value={status}
-                            onChange={e => setStatus(e.target.value)}
-                        />
-                    </div>
+                                    <Form.Group as={Col} controlId="Torre">
+                                        <Form.Label>Torre</Form.Label>
 
-                    <div className="input-package">
-                        <input
-                            placeholder="Fabricante"
-                            style={{ width: 250 }}
-                            value={fabricante}
-                            onChange={e => setFabricante(e.target.value)}
-                        />
-                        <input
-                            placeholder="IP"
-                            style={{ width: 190 }}
-                            value={ip}
-                            onChange={e => setIp(e.target.value)}
-                        />
-                    </div>
+                                        <Form.Control
+                                            type="text"
+                                            name="torre"
+                                            required
+                                            value={torre}
+                                            onChange={e => setTorre(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
 
-                    <div className="input-package">
-                        <input
-                            placeholder="Modelo"
-                            style={{ width: 157 }}
-                            value={modelo}
-                            onChange={e => setModelo(e.target.value)}
-                        />
-                        <input
-                            placeholder="N° de Série"
-                            value={numSerie}
-                            onChange={e => setNumSerie(e.target.value)}
-                        />
-                    </div>
+                                    <Form.Group as={Col} controlId="Status">
+                                        <Form.Label>Status</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="status"
+                                            required
+                                            value={status}
+                                            onChange={e => setStatus(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
 
-                    <div className="input-package">
-                        <input
-                            placeholder="Versão Windows"
-                            style={{ width: 185 }}
-                            value={versaoOS}
-                            onChange={e => setVersaoOS(e.target.value)}
-                        />
-                        <input
-                            placeholder="Chave Windows"
-                            style={{ width: 260 }}
-                            value={chaveWindows}
-                            onChange={e => setChaveWindows(e.target.value)}
-                        />
-                    </div>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="AlocadoCom">
+                                        <Form.Label>Alocada com</Form.Label>
 
-                    <div className="input-package">
-                        <input
-                            placeholder="Versão Office"
-                            style={{ width: 160 }}
-                            value={versaoOffice}
-                            onChange={e => setVersaoOffice(e.target.value)}
-                        />
-                        <input
-                            placeholder="Chave Office"
-                            value={chaveOffice}
-                            onChange={e => setChaveOffice(e.target.value)}
-                        />
-                    </div>
+                                        <Form.Control
+                                            type="text"
+                                            name="alocadoCom"
+                                            required
+                                            value={alocadoCom}
+                                            onChange={e => setAlocadoCom(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
 
-                    <textarea
-                        className="textarea"
-                        placeholder="Adicione alguma observação"
-                        value={obs}
-                        onChange={e => setObs(e.target.value)}
-                    />
+                                <Form.Row>
+                                    <Form.Label>Observação</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        name="obs"
+                                        value={obs}
+                                        onChange={e => setObs(e.target.value)}
+                                    />
+                                </Form.Row>
+                            </Form>
+                        </Tab>
+
+                        <Tab eventKey="technical" title="Ficha técnica">
+                            <Form>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="Ip">
+                                        <Form.Label>IP</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="ip"
+                                            required
+                                            value={ip}
+                                            onChange={e => setIp(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+
+                                    <Form.Group as={Col} controlId="numSérie">
+                                        <Form.Label>Nº de Série</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="numSerie"
+                                            required
+                                            value={numSerie}
+                                            onChange={e => setNumSerie(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
+
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="Fabricante">
+                                        <Form.Label>Fabricante</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="fabricante"
+                                            required
+                                            value={fabricante}
+                                            onChange={e => setFabricante(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+
+                                    <Form.Group as={Col} controlId="Modelo">
+                                        <Form.Label>Modelo</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="modelo"
+                                            required
+                                            value={modelo}
+                                            onChange={e => setModelo(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
+
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="VersaoOS">
+                                        <Form.Label>Sistema Operacional</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="versaoOS"
+                                            required
+                                            value={versaoOS}
+                                            onChange={e => setVersaoOS(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+
+                                    <Form.Group as={Col} controlId="chaveWindows">
+                                        <Form.Label>Chave Windows</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="chaveWindows"
+                                            required
+                                            value={chaveWindows}
+                                            onChange={e => setChaveWindows(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
+
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="VersaoOffice">
+                                        <Form.Label>Versão Office</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="versaoOffice"
+                                            required
+                                            value={versaoOffice}
+                                            onChange={e => setVersaoOffice(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+
+                                    <Form.Group as={Col} controlId="chaveOffice">
+                                        <Form.Label>Chave Office</Form.Label>
+
+                                        <Form.Control
+                                            type="text"
+                                            name="chaveOffice"
+                                            required
+                                            value={chaveOffice}
+                                            onChange={e => setChaveOffice(e.target.value)}
+                                        >
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
+                            </Form>
+                        </Tab>
+                    </Tabs>
 
                     <button
                         className="button-default"
-                        type="submit"
+                        onClick={handleCadastro}
                     >
                         Cadastrar
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     )
