@@ -51,8 +51,9 @@ button {
     transition: filter 0.2s;
 }
 
-.button-default:hover{
+.button-default:hover {
     filter: brightness(90%);
+    color: #FFF !important;
 }
 
 /* Estilização de carregamento */
